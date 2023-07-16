@@ -44,6 +44,7 @@ cardName.addEventListener('input', function () {
         cardName.style.color = "red"
         cardName.style.borderBottom = "2px solid red"
         cardName.classList.remove('validate');
+        validateForm();
         return;
     } else {
         cardName.style.borderBottom = "2px solid #4ecf79"
@@ -68,6 +69,7 @@ input.addEventListener('input', function () {
         input.style.borderBottom = "2px solid red"
         input.style.backgroundImage = "url(images/error-logo.png)";
         input.classList.remove('validate');
+        validateForm();
         return;
     }
 
@@ -124,6 +126,7 @@ expiriy.addEventListener('input', function () {
         expiriy.style.color = "red"
         expiriy.style.borderBottom = "2px solid red"
         expiriy.classList.remove('validate');
+        validateForm();
         return;
     }
     else {
@@ -136,8 +139,8 @@ expiriy.addEventListener('input', function () {
 // CVC \\
 //no more then 3-4 digit's
 const regNumbersOnly = /^[0-9]{1,4}$/;
-
 const cvc = document.querySelector('.card-input-cvc');
+
 cvc.addEventListener('input', function () {
     if (!regNumbersOnly.test(cvc.value)) {
         cvc.style.borderBottom = "2px solid red"
@@ -149,7 +152,7 @@ cvc.addEventListener('input', function () {
         cvc.style.borderBottom = "2px solid #4ecf79"
 
     }
-
+    validateForm();
 });
 
 
@@ -175,13 +178,13 @@ discount.addEventListener('focusout', function () {
         discount.style.color = 'red'
         discount.style.borderBottom = "2px solid red";
         discount.classList.remove('validate');
+        validateForm();
         return;
     }
     else {
         discount.style.borderBottom = "2px solid #4ecf79"
         discount.style.color = "#4ecf79"
     }
-
 });
 
 
@@ -192,11 +195,9 @@ const btn = document.getElementById('btn');
 const checkValid = document.querySelectorAll('.validate');
 let isValid = true;
 
-form.addEventListener('submit', (event) => {
-    event.preventDefault();
+function validateForm() {
 
     isValid = true;
-
     for (let i = 0; i < checkValid.length; i++) {
         if (!checkValid[i].classList.contains('validate')) {
             isValid = false;
@@ -211,4 +212,8 @@ form.addEventListener('submit', (event) => {
         // Form is invalid, disable the submit button
         btn.disabled = true;
     }
+}
+
+form.addEventListener('submit', function (event) {
+    event.preventDefault();
 });
