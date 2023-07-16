@@ -34,7 +34,7 @@
 
 // CARDHOLDER'S NAME \\
 
-let cardName = document.querySelector('.card-input-name')
+const cardName = document.querySelector('.card-input-name')
 
 cardName.addEventListener('input', function () {
     const containsDigits = /\d/.test(cardName.value);
@@ -211,9 +211,20 @@ function validateForm() {
     } else {
         // Form is invalid, disable the submit button
         btn.disabled = true;
-    }
+    };
+
 }
 
+
 form.addEventListener('submit', function (event) {
+    const cardName = document.querySelector('.card-input-name');
+    const input = document.querySelector('.card-input-logo');
+    const expiriy = document.querySelector('.card-input-mini');
+    const cvc = document.querySelector('.card-input-cvc');
+    const discount = document.getElementById('userDiscount');
+
+    if (cardName.value == '' || input.value == '' || expiriy.value == '' || cvc.value == '' || discount.value == '') {
+        btn.disabled = true;
+    }
     event.preventDefault();
 });
