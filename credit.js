@@ -34,21 +34,27 @@
 
 // CARDHOLDER'S NAME \\
 
-const cardName = document.querySelector('.card-input-name')
+const cardName = document.querySelector('.card-input-name');
+const nameSpan = document.getElementById('name-span');
 
 cardName.addEventListener('input', function () {
     const containsDigits = /\d/.test(cardName.value);
     if (containsDigits) {
-        cardName.value = ' '
-        cardName.value = 'ERROR!!'
-        cardName.style.color = "red"
         cardName.style.borderBottom = "2px solid red"
+        nameSpan.style.display = 'block'
+        nameSpan.style.color = 'red'
         cardName.classList.remove('validate');
         validateForm();
-        return;
+        // return;
+    } else if (cardName.value.trim() === '') {
+        cardName.style.borderBottom = '2px solid #9563FF'
+        nameSpan.style.display = 'none'
+        btn.disabled = false
+        cardName.classList.remove('validate');
     } else {
         cardName.style.borderBottom = "2px solid #4ecf79"
-        cardName.style.color = " #4ecf79"
+        btn.disabled = false
+        nameSpan.style.display = 'none'
         cardName.classList.add('validate')
     }
 });
@@ -61,17 +67,6 @@ const input = document.querySelector(".card-input-logo");
 
 input.addEventListener('input', function () {
     const inputValue = input.value.replaceAll(' ', '');
-
-    if (inputValue.match(/[^0-9]/)) {
-        input.value = inputValue.replace(/[^0-9]/g, '');
-        input.value = 'ERROR!!'
-        input.style.color = "red"
-        input.style.borderBottom = "2px solid red"
-        input.style.backgroundImage = "url(images/error-logo.png)";
-        input.classList.remove('validate');
-        validateForm();
-        return;
-    }
 
 
     let regexMaster = /^(5[1-5][0-9]{14}|2(22[1-9][0-9]{12}|2[3-9][0-9]{13}|[3-6][0-9]{14}|7[0-1][0-9]{13}|720[0-9]{12}))$/
@@ -92,22 +87,50 @@ input.addEventListener('input', function () {
         return
     }
     else if (test3) {
-        input.style.backgroundImage = "url(images/Discover-Logo.png)";
+        input.style.backgroundImage = "url(images/Discover-Logo.png)";//6011123456789012
         return
+    } else {
+        input.style.backgroundImage = "url(images/Master-CardD.png)";
     }
 
 
     const separated = inputValue.match(/.{1,4}/g); // Split into groups of 4 digits
     input.value = separated.join(' '); // Add spaces for every 4 digits
-    input.style.borderBottom = "2px solid #4ecf79"
-    input.classList.add('validate')
 });
+
+
+
+const cardSpan = document.getElementById('card-span');
+
+input.addEventListener('input', function () {
+    const inputValue = input.value.replaceAll(' ', '');
+
+    if (inputValue.match(/[^0-9]/)) {
+        input.value = inputValue.replace(/[^0-9]/g, '');
+        input.value = ' ';
+        input.style.borderBottom = "2px solid red";
+        input.style.backgroundImage = "url(images/error-logo.png)";
+        cardSpan.style.display = 'block';
+        cardSpan.style.color = 'red';
+        input.classList.remove('validate');
+        validateForm();
+    } else if (inputValue.trim() === '') {
+        input.style.borderBottom = '2px solid #9563FF';
+        cardSpan.style.display = 'none'
+        btn.disabled = false;
+        input.classList.remove('validate');
+    } else {
+        input.style.borderBottom = "2px solid #4ecf79";
+        input.classList.add('validate');
+    }
+});
+
 
 
 // EXPIRY \\
 
 const expiriy = document.querySelector('.card-input-mini');
-
+const exSpan = document.getElementById('expiry-sapn')
 
 //the next 2 event's change the type of input
 expiriy.addEventListener('focus', function () {
@@ -123,15 +146,15 @@ expiriy.addEventListener('input', function () {
     let now = new Date();
 
     if (new Date(expiriy.value) < now) {
-        expiriy.style.color = "red"
         expiriy.style.borderBottom = "2px solid red"
         expiriy.classList.remove('validate');
+        exSpan.style.display = "block";
         validateForm();
         return;
-    }
-    else {
+    } else {
+        exSpan.style.display = 'none';
         expiriy.style.borderBottom = "2px solid #4ecf79"
-        expiriy.style.color = "#4ecf79"
+        btn.disabled = false;
     }
 });
 
@@ -140,26 +163,36 @@ expiriy.addEventListener('input', function () {
 //no more then 3-4 digit's
 const regNumbersOnly = /^[0-9]{1,4}$/;
 const cvc = document.querySelector('.card-input-cvc');
+const cvcSpan = document.getElementById('cvc-span')
 
 cvc.addEventListener('input', function () {
-    if (!regNumbersOnly.test(cvc.value)) {
-        cvc.style.borderBottom = "2px solid red"
-        cvc.type = 'text'
-        cvc.value = 'ERROR!!'
-        cvc.style.color = "red"
-        cvc.classList.remove('validate');
-    } else {
-        cvc.style.borderBottom = "2px solid #4ecf79"
+    if (regNumbersOnly.test(cvc.value)) {
+        cvc.style.borderBottom = "2px solid #4ecf79" //grenn
+        btn.disabled = false;
+        cvcSpan.style.display = 'none'
 
+    } else if (cvc.value.trim() === '') {
+        cvcSpan.style.display = 'none'
+        cvc.style.borderBottom = '2px solid #9563FF';
+        btn.disabled = false;
+
+    } else {
+        cvcSpan.style.display = "block"
+        cvc.style.borderBottom = "2px solid red"
+        cvc.classList.remove('validate');
+        validateForm();
     }
-    validateForm();
 });
+
+
 
 
 // DISCOUNT CODE \\
 // 8 - uppercase letter's, 2 - numbers, 3 - uppercase letter's
 
 const discount = document.getElementById('userDiscount');
+const discountSpan = document.getElementById('Discount-span');
+
 
 discount.addEventListener('focusout', function () {
 
@@ -173,19 +206,23 @@ discount.addEventListener('focusout', function () {
     let test2 = regex2.test(discountArray[1]);
     let test3 = regex3.test(discountArray[2]);
 
-    if (!test1 || !test2 || !test3) {
-        discount.value = 'ERROR!'
-        discount.style.color = 'red'
+    if (test1 & test2 & test3) {
+        discount.style.borderBottom = "2px solid #4ecf79"
+        discountSpan.style.display = 'none'
+        btn.disabled = false;
+    } else if (discount.value.trim() === '') {
+        discount.style.borderBottom = '2px solid #9563FF';
+        discountSpan.style.display = 'none';
+        btn.disabled = false;
+    } else {
         discount.style.borderBottom = "2px solid red";
+        discountSpan.style.display = "block"
         discount.classList.remove('validate');
         validateForm();
         return;
     }
-    else {
-        discount.style.borderBottom = "2px solid #4ecf79"
-        discount.style.color = "#4ecf79"
-    }
 });
+
 
 
 // PAY BUTTON\\
@@ -225,6 +262,7 @@ form.addEventListener('submit', function (event) {
 
     if (cardName.value == '' || input.value == '' || expiriy.value == '' || cvc.value == '' || discount.value == '') {
         btn.disabled = true;
+        btn.disabled.color = '2px solid #9563ff8f'
     }
     event.preventDefault();
 });

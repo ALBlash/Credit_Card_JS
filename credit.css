@@ -41,7 +41,7 @@
         background: #EEEEEE;
         border-bottom: 2px solid #9563FF;
         border-radius: 9.8708px;
-        margin-bottom: 30px;
+        margin-bottom: 10px;
     }
 
     .card-input-name {
@@ -51,11 +51,15 @@
         background: #EEEEEE;
         border-bottom: 2px solid #9563FF;
         border-radius: 9.8708px;
-        margin-bottom: 30px;
+        margin-bottom: 15px;
+    }
+
+    #name-span {
+        display: none;
     }
 
     ::placeholder {
-        color: #9563FF;
+        color: #ba9ff4;
     }
 
     .card-input-logo {
@@ -68,6 +72,10 @@
         background-size: 15% auto;
         background-color: #EEEEEE;
         margin-bottom: 10px;
+    }
+
+    #card-span {
+        display: none;
     }
 
     .mini-form-container-flex {
@@ -88,6 +96,23 @@
         background: #EEEEEE;
         border-bottom: 2px solid #9563FF;
         border-radius: 9.8708px;
+        margin-bottom: 5px;
+    }
+
+    #expiry-sapn {
+        display: none;
+        color: red;
+    }
+
+    #cvc-span {
+        display: none;
+        color: red;
+    }
+
+    #Discount-span {
+        display: none;
+        color: red;
+        margin-bottom: 10px;
     }
 
     button {
@@ -102,7 +127,9 @@
 
     }
 
-
+    button:disabled {
+        background: #9563ff8a;
+    }
 
     .card-payment-detailes {
         background-color: #f0f0f0;
@@ -227,6 +254,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        margin-top: 60px;
     }
 
     .card-form {
@@ -240,7 +268,7 @@
         background: #EEEEEE;
         border-bottom: 2px solid #9563FF;
         border-radius: 9.8708px;
-        margin-bottom: 30px;
+        margin-bottom: 10px;
     }
 
     .card-input-name {
@@ -250,11 +278,15 @@
         background: #EEEEEE;
         border-bottom: 2px solid #9563FF;
         border-radius: 9.8708px;
-        margin-bottom: 30px;
+        margin-bottom: 5px;
     }
 
     ::placeholder {
-        color: #9563FF;
+        color: #ba9ff4;
+    }
+
+    #name-span {
+        display: none;
     }
 
     .card-input-logo {
@@ -267,6 +299,10 @@
         background-size: 15% auto;
         background-color: #EEEEEE;
         margin-bottom: 10px;
+    }
+
+    #card-span {
+        display: none;
     }
 
     .mini-form-container-flex {
@@ -287,6 +323,23 @@
         background: #EEEEEE;
         border-bottom: 2px solid #9563FF;
         border-radius: 9.8708px;
+        margin-bottom: 5px;
+    }
+
+    #expiry-sapn {
+        display: none;
+        color: red;
+    }
+
+    #cvc-span {
+        display: none;
+        color: red;
+    }
+
+    #Discount-span {
+        display: none;
+        color: red;
+        margin-bottom: 10px;
     }
 
     button {
@@ -298,18 +351,20 @@
         font-family: 'Inter', sans-serif;
         font-weight: 700;
         cursor: pointer;
-
     }
 
-
+    button:disabled {
+        background: #9563ff8a;
+    }
 
     .card-payment-detailes {
         background-color: #f0f0f0;
         width: 410px;
         height: 605px;
         border-radius: 10px;
-        padding: 5px 25px;
+        padding: 15px 25px;
     }
+
 
     .title2 {
         color: #575757;
@@ -318,14 +373,13 @@
         font-weight: 500;
     }
 
+
     .card-digits {
         color: #000;
         font-size: 50px;
         font-family: Inter;
-        font-weight: 700;
-        margin-top: 2px;
-        margin-left: 20px;
-
+        font-weight: bolder;
+        opacity: 1;
     }
 
 
@@ -425,6 +479,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        margin-top: 60px;
     }
 
     .card-form {
@@ -436,9 +491,9 @@
         border: none;
         line-height: 27px;
         background: #EEEEEE;
-        border-bottom: 2px solid #9563FF;
+        border-bottom: 2px solid #c9b1fc;
         border-radius: 9.8708px;
-        margin-bottom: 30px;
+        margin-bottom: 10px;
     }
 
 
@@ -449,11 +504,15 @@
         background: #EEEEEE;
         border-bottom: 2px solid #9563FF;
         border-radius: 9.8708px;
-        margin-bottom: 30px;
+        margin-bottom: 15px;
     }
 
     ::placeholder {
-        color: #9563FF;
+        color: #ba9ff4;
+    }
+
+    #name-span {
+        display: none;
     }
 
     .card-input-logo {
@@ -466,6 +525,10 @@
         background-size: 15% auto;
         background-color: #EEEEEE;
         margin-bottom: 10px;
+    }
+
+    #card-span {
+        display: none;
     }
 
     .mini-form-container-flex {
@@ -486,6 +549,23 @@
         background: #EEEEEE;
         border-bottom: 2px solid #9563FF;
         border-radius: 9.8708px;
+        margin-bottom: 5px;
+    }
+
+    #expiry-sapn {
+        display: none;
+        color: red;
+    }
+
+    #cvc-span {
+        display: none;
+        color: red;
+    }
+
+    #Discount-span {
+        display: none;
+        color: red;
+        margin-bottom: 10px;
     }
 
     button {
@@ -500,6 +580,9 @@
 
     }
 
+    button:disabled {
+        background: #9563ff8a;
+    }
 
 
     .card-payment-detailes {
