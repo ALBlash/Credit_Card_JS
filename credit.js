@@ -83,7 +83,7 @@ input.addEventListener('input', function () {
         input.style.backgroundImage = "url(images/mastercard.256x153.png)";
         return
     } else if (test2) {
-        input.style.backgroundImage = "url(images/Visa-Logo.png)";
+        input.style.backgroundImage = "url(images/Visa-logo.png)";
         return
     }
     else if (test3) {
@@ -106,8 +106,6 @@ input.addEventListener('input', function () {
     const inputValue = input.value.replaceAll(' ', '');
 
     if (inputValue.match(/[^0-9]/)) {
-        input.value = inputValue.replace(/[^0-9]/g, '');
-        input.value = ' ';
         input.style.borderBottom = "2px solid red";
         input.style.backgroundImage = "url(images/error-logo.png)";
         cardSpan.style.display = 'block';
@@ -120,6 +118,7 @@ input.addEventListener('input', function () {
         btn.disabled = false;
         input.classList.remove('validate');
     } else {
+        cardSpan.style.display = 'none';
         input.style.borderBottom = "2px solid #4ecf79";
         input.classList.add('validate');
     }
