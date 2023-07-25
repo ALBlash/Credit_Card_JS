@@ -83,7 +83,7 @@ input.addEventListener('input', function () {
         input.style.backgroundImage = "url(images/mastercard.256x153.png)";
         return
     } else if (test2) {
-        input.style.backgroundImage = "url(images/visa-logo.png)";
+        input.style.backgroundImage = "url(images/visa.png)";
         return
     }
     else if (test3) {
