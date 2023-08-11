@@ -94,6 +94,9 @@ input.addEventListener('input', function () {
     }
 
 
+
+
+
     const separated = inputValue.match(/.{1,4}/g); // Split into groups of 4 digits
     input.value = separated.join(' '); // Add spaces for every 4 digits
 });
