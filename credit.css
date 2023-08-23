@@ -99,7 +99,7 @@
         margin-bottom: 5px;
     }
 
-    #expiry-sapn {
+    #expiry-span {
         display: none;
         color: red;
     }
@@ -344,7 +344,7 @@
         margin-bottom: 5px;
     }
 
-    #expiry-sapn {
+    #expiry-span {
         display: none;
         color: red;
     }
@@ -507,6 +507,7 @@
         font-family: 'Inter', sans-serif;
         font-weight: 700;
         color: #000000;
+        margin-top: 70px;
     }
 
     .card-description {
@@ -589,7 +590,7 @@
         margin-bottom: 10px;
     }
 
-    #expiry-sapn {
+    #expiry-span {
         display: none;
         color: red;
     }
@@ -720,6 +721,6 @@
     flex-direction: row;
     justify-content: space-evenly;
     gap: 140px;
-    height: 65px;
+    height: 55px;
     align-items: center;
 }

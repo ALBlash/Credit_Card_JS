@@ -1,36 +1,3 @@
-// ולידציות נדרשות:
-
-// - שדה cardholder name:
-//     - ערכים יכולים להיות אך ורק תווים A-Za-z ורווחים.
-//     - לא ניתן להזין ערכים מספריים
-
-
-// - שדה card number:
-//     - ערכים יכולים להיות מספרים ורווחים
-//      - שימו לב, בשדה card number עלינו לפרמט את מספר הכרטיס תוך כדיי הזנה של ערך לתוך ה-input ככה שבין כל 4 תווים (מספרים) יופיע רווח
-//     - בנוסף, יש לטעון בצד שמאל את האייקון של סוג הכרטיס, (תחשבו איך לעשות זאת)
-
-
-// - שדה expiriy
-//     - אך ורק מספרים
-//     - שימו לב שהחודש יכול להיות בין 1 ל-12, וחיבור של החודש והשנה צריך לתת לנו תאריך עתידי
-
-// - שדה CVC
-//     - זה יכול להיות אך ורק מספרים בין 3-4 תווים
-
-// - Discount code
-//     - שימו לב לפורמט המופיע ב-placeholder, שילוב של תווים (A-Z) עם מספרים (0-9) בין כל 6 תווים נוסיף מקף, סה״כ קוד תקין מורכב מ24 תווים עם 3 מקפים בין לבין
-
-// כל עוד יש בעיה בטופס כלאמר הולידציה אינה תקינה או שחסרים נתונים, כפתור ה-Pay אמור להיות מדוסבל (disabled)
-// כדיי לייצג שגיאה בשדה מסוים - יש לצבוע את החלק התחתון שלו בצבע אדום (border-bottom)
-
-
-
-
-
-
-
-
 
 // CARDHOLDER'S NAME \\
 
@@ -132,11 +99,11 @@ input.addEventListener('input', function () {
 // EXPIRY \\
 
 const expiriy = document.querySelector('.card-input-mini');
-const exSpan = document.getElementById('expiry-sapn')
+const exSpan = document.getElementById('expiry-span');
 
 //the next 2 event's change the type of input
 expiriy.addEventListener('focus', function () {
-    expiriy.type = 'month';
+    expiriy.type = 'date';
 });
 expiriy.addEventListener('focusout', function () {
     expiriy.type = 'text';
@@ -174,10 +141,9 @@ cvc.addEventListener('input', function () {
         cvcSpan.style.display = 'none'
 
     } else if (cvc.value.trim() === '') {
-        cvcSpan.style.display = 'none'
-        cvc.style.borderBottom = '2px solid #9563FF';
-        btn.disabled = false;
-
+        cvcSpan.style.display = 'block'
+        cvc.style.borderBottom = '2px solid red';
+        btn.disabled = true;
     } else {
         cvcSpan.style.display = "block"
         cvc.style.borderBottom = "2px solid red"
