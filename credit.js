@@ -141,8 +141,8 @@ cvc.addEventListener('input', function () {
         cvcSpan.style.display = 'none'
 
     } else if (cvc.value.trim() === '') {
-        cvcSpan.style.display = 'block'
-        cvc.style.borderBottom = '2px solid red';
+        cvcSpan.style.display = 'none'
+        cvc.style.borderBottom = '2px solid #9563FF';
         btn.disabled = true;
     } else {
         cvcSpan.style.display = "block"
