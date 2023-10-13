@@ -48,8 +48,8 @@
                 <span id="name-span">*this input can contain only letter\'s</span><br>
 
                 <label class="title" for="userCard">Card Number</label><br>
-                <input class="card-input-logo title validate" placeholder="9870 3456 7890 6473"
-                    pattern="[0-9]{4}( [0-9]{4}){3}" maxlength="19" required /> <br>
+                <input type="text" inputmode="numeric" class="card-input-logo title validate"
+                    placeholder="9870 3456 7890 6473" pattern="[0-9]{4}( [0-9]{4}){3}" maxlength="19" required /> <br>
                 <span id="card-span">*insert only digits</span>
 
                 <div class="mini-form-container-flex">
@@ -62,8 +62,8 @@
 
                     <div class="mini-inside">
                         <label class="title" for="userCvc">CVC</label> <br>
-                        <input class="card-input-cvc validate" type="password" name="userCvc" id="userCvc"
-                            placeholder="654"><br>
+                        <input type="text" inputmode="numeric" class="card-input-cvc validate" type="password"
+                            name="userCvc" id="userCvc" placeholder="654"><br>
                         <span id="cvc-span"> * 3-4 digits only!</span>
                     </div>
 
